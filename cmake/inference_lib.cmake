@@ -106,8 +106,8 @@ function(copy_part_of_thrid_party TARGET DST)
 
     set(dst_dir "${DST}/third_party/install/glog")
     copy(${TARGET}
-            SRCS ${GLOG_INCLUDE_DIR} ${GLOG_LIBRARIES}
-            DSTS ${dst_dir} ${dst_dir}/lib)
+            SRCS ${GLOG_INCLUDE_DIR} ${GLOG_SHARED_LIB} ${GLOG_SHARED_LIB_1} ${GLOG_SHARED_LIB_2}
+            DSTS ${dst_dir} ${dst_dir}/lib ${dst_dir}/lib ${dst_dir}/lib)
 
     if (WITH_CRYPTO)
         set(dst_dir "${DST}/third_party/install/cryptopp")
