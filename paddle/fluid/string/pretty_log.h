@@ -18,6 +18,7 @@
 #include <string>
 #include <utility>
 #include "gflags/gflags.h"
+#include "glog/logging.h"
 
 #include "paddle/fluid/string/printf.h"
 
@@ -59,12 +60,16 @@ struct Style {
 template <typename... Args>
 static void PrettyLogEndl(const std::string &style, const char *fmt,
                           const Args &... args) {
-  std::cerr << style << Sprintf(fmt, args...) << reset() << std::endl;
+  //std::cerr << style << Sprintf(fmt, args...) << reset() << std::endl;
+  //LOG(ERROR) << "GOOGLE_STRIP_LOG 1: " << GOOGLE_STRIP_LOG;
+  LOG(INFO) << Sprintf(fmt, args...);
 }
 template <typename... Args>
 static void PrettyLog(const std::string &style, const char *fmt,
                       const Args &... args) {
-  std::cerr << style << Sprintf(fmt, args...) << reset();
+  //std::cerr << style << Sprintf(fmt, args...) << reset();
+  //LOG(ERROR) << "GOOGLE_STRIP_LOG 2: " << GOOGLE_STRIP_LOG;
+  LOG(INFO) << Sprintf(fmt, args...);
 }
 
 template <typename... Args>
